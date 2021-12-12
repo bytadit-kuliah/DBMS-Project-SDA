@@ -193,10 +193,25 @@ public class OPERATOR extends javax.swing.JFrame {
         });
 
         jButton2.setText("UPDATE");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("DELETE");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("CLEAR");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -374,8 +389,110 @@ public class OPERATOR extends javax.swing.JFrame {
         LocOperasi.setText(dl.getValueAt(SelectIndex, 1).toString());
         
         jButton1.setEnabled(false);
-         
+        
     }//GEN-LAST:event_TabelOperatorMouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    
+        
+        DefaultTableModel dl = (DefaultTableModel)TabelOperator.getModel();
+        int SelectIndex = TabelOperator.getSelectedRow();
+        
+        String Kode_Opr = KdOperator.getText();
+        String Nama_Opr = NmOperator.getText();
+        String Tipe_Opr = TpOperator.getText();
+        String Fokus_Str = FcSektor.getText();
+        String Fokus_Prd = FcProduksi.getText();
+        String Lokasi_Opr = LocOperasi.getText();
+        
+        try {
+            pst = con.prepareStatement("UPDATE OPERATOR SET Nama_Operator = ?, Kode_Provinsi = (SELECT Kode_Provinsi FROM PROVINSI WHERE Nama_Provinsi = ?), Tipe_Operator = ?, Fokus_Sektor = ?, Fokus_Produksi = ? WHERE Kode_Operator = ?");
+            
+            pst.setString(1, Nama_Opr);
+            pst.setString(2, Lokasi_Opr);
+            pst.setString(3, Tipe_Opr);
+            pst.setString(4, Fokus_Str);
+            pst.setString(5, Fokus_Prd);
+            pst.setString(6, Kode_Opr);
+            
+            int k = pst.executeUpdate();
+            
+            if (k==1)
+            {
+                JOptionPane.showMessageDialog(this,"Data Berhasil Diperbarui");
+                KdOperator.setText("");
+                NmOperator.setText("");
+                TpOperator.setText("");
+                FcSektor.setText("");
+                FcProduksi.setText("");
+                LocOperasi.setText("");
+                KdOperator.requestFocus();
+                TabelOperator();
+                jButton1.setEnabled(true);
+                
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this,"Data Gagal Diperbarui");
+            }
+            // TODO add your handling code here:
+        } catch (SQLException ex) {
+            Logger.getLogger(OPERATOR.class.getName()).log(Level.SEVERE, null, ex);
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    
+        DefaultTableModel dl = (DefaultTableModel)TabelOperator.getModel();
+        int SelectIndex = TabelOperator.getSelectedRow();
+        
+        String Kode_Opr = KdOperator.getText();
+        
+        try {
+            pst = con.prepareStatement("DELETE FROM OPERATOR WHERE Kode_Operator = ?");
+            
+            pst.setString(1, Kode_Opr);
+            
+            int k = pst.executeUpdate();
+            
+            if (k==1)
+            {
+                JOptionPane.showMessageDialog(this,"Data Berhasil Dihapus");
+                KdOperator.setText("");
+                NmOperator.setText("");
+                TpOperator.setText("");
+                FcSektor.setText("");
+                FcProduksi.setText("");
+                LocOperasi.setText("");
+                KdOperator.requestFocus();
+                TabelOperator();
+                jButton1.setEnabled(true);
+                KdOperator.setEnabled(true);
+                
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this,"Data Gagal Dihapus");
+            }
+            // TODO add your handling code here:
+        } catch (SQLException ex) {
+            Logger.getLogger(OPERATOR.class.getName()).log(Level.SEVERE, null, ex);
+        }        // TODO add yo        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+                KdOperator.setText("");
+                NmOperator.setText("");
+                TpOperator.setText("");
+                FcSektor.setText("");
+                FcProduksi.setText("");
+                LocOperasi.setText("");
+                KdOperator.requestFocus();
+                jButton1.setEnabled(true);
+                TabelOperator();
+                
+                // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
