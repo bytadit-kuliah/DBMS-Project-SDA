@@ -11,7 +11,7 @@ git config --global user.email "MY_NAME@example.com"  //email yg mau dipake <br>
 10. edit", file netbeans, klo udh fix, disave, 
 11. git status, klo merah mk perlu di add (git add .)
 12. git status, (klo hijau mk tinggal commit : git commit -m "pesan...")
-13. git push -u origin main
+13. git push -u origin main (klo error pas ngepush https://medium.com/@bayupaoh/kolaburasi-code-dengan-git-dan-github-1-79e19e553f85)
 14. 
 
 # DBMS-Project-SDA
@@ -21,6 +21,14 @@ git config --global user.email "MY_NAME@example.com"  //email yg mau dipake <br>
 4. Libraries (ada di folder)
 
 ## Cara Connect database SQL Server Remote
+new connection biasa, tpi connect ke ip address 192.168.43.36, <br>
+pke sql server auth
+username : bytadit
+pass : bytadit123
+
+atau
+username : farel
+pass : farel123
 
 ## Cara Konek SQL Server di Netbeans
 1. Add Libraries <br>
@@ -31,8 +39,8 @@ tab services -> databases -> new connection <br>
 Host : 127.0.0.1 <br>
 Port : 1433 <br>
 database : SDAIndo <br>
-Username : bytadit <br>
-password : bytadit123 <br>
+Username : (sesuai ssms) <br>
+password : (sesuai ssms)<br>
 ->dbo
 ## Bagian GUI yang sudah dibuat (belum final, tampilan msh jelek) :
 1. Operator
