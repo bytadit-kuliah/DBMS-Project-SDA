@@ -1,8 +1,8 @@
 # VCS GIT
 1. Install Git
-3. Di folder manapun, klik kanan, git bash here
-git config --global user.name "FIRST_NAME LAST_NAME"  //username bebas/punya github klo bisa
-git config --global user.email "MY_NAME@example.com"  //email yg mau dipake
+3. Di folder manapun, klik kanan, git bash here <br>
+git config --global user.name "FIRST_NAME LAST_NAME"  //username bebas/punya github klo bisa <br>
+git config --global user.email "MY_NAME@example.com"  //email yg mau dipake <br>
 5. konfigure ssh (https://gist.github.com/adamjohnson/5682757) (step 1-5)
 6. copy isi id_rsa.pub, kirim ke adit
 7. clone repository to local(folder manapun yg mau dipake) (git clone git@github.com:bytadit/DBMS-Project-SDA-.git)
