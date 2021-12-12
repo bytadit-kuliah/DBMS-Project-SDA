@@ -1,18 +1,18 @@
 # VCS GIT
 1. Install Git
-2. clone repository to local
-3. Di folder repo local, klik kanan, git bash here
+3. Di folder manapun, klik kanan, git bash here
 git config --global user.name "FIRST_NAME LAST_NAME"  //username bebas/punya github klo bisa
 git config --global user.email "MY_NAME@example.com"  //email yg mau dipake
 5. konfigure ssh (https://gist.github.com/adamjohnson/5682757) (step 1-5)
 6. copy isi id_rsa.pub, kirim ke adit
-7. di git bash, ketik : git remote add origin git@github.com:bytadit/DBMS-Project-SDA-.git
-8. git branch -M main
-9. edit", file netbeans, klo udh fix, disave, 
-10. git status, klo merah mk perlu di add (git add .)
-11. git status, (klo hijau mk tinggal commit : git commit -m "pesan...")
-12. 
+7. clone repository to local(folder manapun yg mau dipake) (git clone git@github.com:bytadit/DBMS-Project-SDA-.git)
+8. di git bash, ketik : git remote add origin git@github.com:bytadit/DBMS-Project-SDA-.git
+9. git branch -M main
+10. edit", file netbeans, klo udh fix, disave, 
+11. git status, klo merah mk perlu di add (git add .)
+12. git status, (klo hijau mk tinggal commit : git commit -m "pesan...")
 13. 
+14. 
 
 # DBMS-Project-SDA
 1. Download dulu Netbeans IDE
