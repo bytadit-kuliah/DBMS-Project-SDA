@@ -1,9 +1,19 @@
 # DBMS-Project-SDA
 
-## 1. Cara Connect database SQL Server
+## Cara Connect database SQL Server
 
+## Cara Konek SQL Server di Netbeans
+1. Add Libraries 
+Libraries -> Add JAR/Folder -> masukkin semua JAR di folder libraries (diekstrak dulu ofcourse)
 
-## 2. Bagian GUI yang sudah dibuat (belum final, tampilan msh jelek) :
+https://www.youtube.com/watch?v=0lYuVx-7PUM
+Host : 127.0.0.1
+Port : 1433
+database : SDAIndo
+Username : bytadit
+password : bytadit123
+
+## Bagian GUI yang sudah dibuat (belum final, tampilan msh jelek) :
 1. Operator
 2. Menu Utama
 3. SDA Menu
