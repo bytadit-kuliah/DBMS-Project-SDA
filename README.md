@@ -11,7 +11,7 @@ git config --global user.email "MY_NAME@example.com"  //email yg mau dipake
 10. edit", file netbeans, klo udh fix, disave, 
 11. git status, klo merah mk perlu di add (git add .)
 12. git status, (klo hijau mk tinggal commit : git commit -m "pesan...")
-13. 
+13. git push -u origin main
 14. 
 
 # DBMS-Project-SDA
