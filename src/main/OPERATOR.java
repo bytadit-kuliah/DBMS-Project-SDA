@@ -18,6 +18,7 @@ import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+import java.sql.*;
 
 
 
@@ -34,6 +35,7 @@ public class OPERATOR extends javax.swing.JFrame {
         initComponents();
         Connect();
         TabelOperator();
+        TabelProvinsi();
     }
     
     
@@ -55,11 +57,11 @@ public class OPERATOR extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         KdOperator = new javax.swing.JTextField();
         NmOperator = new javax.swing.JTextField();
-        TpOperator = new javax.swing.JTextField();
         FcSektor = new javax.swing.JTextField();
         FcProduksi = new javax.swing.JTextField();
-        LocOperasi = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
+        txtprovinsi = new javax.swing.JComboBox<>();
+        tipeoperator = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         TabelOperator = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
@@ -107,6 +109,19 @@ public class OPERATOR extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setText("Tipe Operator");
 
+        txtprovinsi.setMaximumRowCount(5);
+        txtprovinsi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtprovinsiActionPerformed(evt);
+            }
+        });
+
+        tipeoperator.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tipeoperatorActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -118,20 +133,20 @@ public class OPERATOR extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(jLabel9))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(KdOperator, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TpOperator, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NmOperator, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(KdOperator, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                    .addComponent(NmOperator, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                    .addComponent(tipeoperator, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
                     .addComponent(jLabel7)
                     .addComponent(jLabel8))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(LocOperasi, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FcProduksi, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FcSektor, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(FcProduksi, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                    .addComponent(FcSektor, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                    .addComponent(txtprovinsi, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(58, 58, 58))
         );
         jPanel1Layout.setVerticalGroup(
@@ -149,13 +164,13 @@ public class OPERATOR extends javax.swing.JFrame {
                     .addComponent(NmOperator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
                     .addComponent(FcProduksi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TpOperator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8)
-                    .addComponent(LocOperasi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
-                .addGap(28, 28, 28))
+                    .addComponent(jLabel9)
+                    .addComponent(txtprovinsi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tipeoperator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44))
         );
 
         TabelOperator.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -224,27 +239,23 @@ public class OPERATOR extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel5))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 930, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGap(55, 55, 55)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(26, 26, 26)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(145, 145, 145)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(138, 138, 138)
-                                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(24, 24, 24))))))
-                .addContainerGap(69, Short.MAX_VALUE))
+                        .addGap(55, 55, 55)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(35, 35, 35)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(136, 136, 136)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(159, 159, 159)
+                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(130, 130, 130)
+                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 930, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(jLabel5)))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -255,17 +266,17 @@ public class OPERATOR extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addComponent(jLabel5)
-                .addGap(29, 29, 29))
+                .addGap(18, 18, 18))
         );
 
         pack();
@@ -296,7 +307,6 @@ public class OPERATOR extends javax.swing.JFrame {
         try {
             pst = con.prepareStatement("SELECT * FROM OPERATOR");
             ResultSet rs = pst.executeQuery();
-            
             ResultSetMetaData RSM = rs.getMetaData();
             int c;
             c = RSM.getColumnCount();
@@ -324,6 +334,26 @@ public class OPERATOR extends javax.swing.JFrame {
         }
         
     }
+
+    private void TabelProvinsi()
+    {
+        try {
+            tipeoperator.addItem("BUMN");
+            tipeoperator.addItem("BUMD");
+            tipeoperator.addItem("BUMS");
+            pst = con.prepareStatement("SELECT * FROM PROVINSI");
+            ResultSet rs = pst.executeQuery();
+            
+            txtprovinsi.removeAllItems(); 
+            while(rs.next())
+            {
+                txtprovinsi.addItem(rs.getString(2));
+            }
+        }catch(SQLException ex){
+            Logger.getLogger(OPERATOR.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
     
     private void NmOperatorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NmOperatorActionPerformed
         // TODO add your handling code here:
@@ -337,10 +367,10 @@ public class OPERATOR extends javax.swing.JFrame {
     
         String Kode_Opr = KdOperator.getText();
         String Nama_Opr = NmOperator.getText();
-        String Tipe_Opr = TpOperator.getText();
+        String Tipe_Opr = tipeoperator.getSelectedItem().toString();
         String Fokus_Str = FcSektor.getText();
         String Fokus_Prd = FcProduksi.getText();
-        String Lokasi_Opr = LocOperasi.getText();
+        String Lokasi_Opr = txtprovinsi.getSelectedItem().toString();
         
         try {
             pst = con.prepareStatement("INSERT INTO OPERATOR SELECT ? AS Kode_Operator, Kode_Provinsi,? AS Nama_Operator,? AS Tipe_Operator,? AS Fokus_Sektor,? AS Fokus_Produksi FROM PROVINSI WHERE Nama_Provinsi = ?");
@@ -358,10 +388,10 @@ public class OPERATOR extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this,"Data Berhasil Ditambahkan");
                 KdOperator.setText("");
                 NmOperator.setText("");
-                TpOperator.setText("");
+                tipeoperator.setSelectedItem("");
                 FcSektor.setText("");
                 FcProduksi.setText("");
-                LocOperasi.setText("");
+                txtprovinsi.setSelectedItem("");
                 KdOperator.requestFocus();
                 TabelOperator();
             }
@@ -378,15 +408,17 @@ public class OPERATOR extends javax.swing.JFrame {
     private void TabelOperatorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabelOperatorMouseClicked
         // TODO add your handling code here:
         DefaultTableModel dl = (DefaultTableModel)TabelOperator.getModel();
+        
         int SelectIndex = TabelOperator.getSelectedRow();
+        
         
         
         KdOperator.setText(dl.getValueAt(SelectIndex, 0).toString());
         NmOperator.setText(dl.getValueAt(SelectIndex, 2).toString());
-        TpOperator.setText(dl.getValueAt(SelectIndex, 3).toString());
+        tipeoperator.setSelectedItem(dl.getValueAt(SelectIndex, 3).toString());
         FcSektor.setText(dl.getValueAt(SelectIndex, 4).toString());
         FcProduksi.setText(dl.getValueAt(SelectIndex, 5).toString());
-        LocOperasi.setText(dl.getValueAt(SelectIndex, 1).toString());
+        txtprovinsi.setSelectedItem(dl.getValueAt(SelectIndex, 1).toString());
         
         jButton1.setEnabled(false);
         
@@ -400,10 +432,10 @@ public class OPERATOR extends javax.swing.JFrame {
         
         String Kode_Opr = KdOperator.getText();
         String Nama_Opr = NmOperator.getText();
-        String Tipe_Opr = TpOperator.getText();
+        String Tipe_Opr = tipeoperator.getSelectedItem().toString();
         String Fokus_Str = FcSektor.getText();
         String Fokus_Prd = FcProduksi.getText();
-        String Lokasi_Opr = LocOperasi.getText();
+        String Lokasi_Opr = txtprovinsi.getSelectedItem().toString();
         
         try {
             pst = con.prepareStatement("UPDATE OPERATOR SET Nama_Operator = ?, Kode_Provinsi = (SELECT Kode_Provinsi FROM PROVINSI WHERE Nama_Provinsi = ?), Tipe_Operator = ?, Fokus_Sektor = ?, Fokus_Produksi = ? WHERE Kode_Operator = ?");
@@ -422,10 +454,10 @@ public class OPERATOR extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this,"Data Berhasil Diperbarui");
                 KdOperator.setText("");
                 NmOperator.setText("");
-                TpOperator.setText("");
+                tipeoperator.setSelectedItem("");
                 FcSektor.setText("");
                 FcProduksi.setText("");
-                LocOperasi.setText("");
+                txtprovinsi.setSelectedItem("");
                 KdOperator.requestFocus();
                 TabelOperator();
                 jButton1.setEnabled(true);
@@ -460,10 +492,10 @@ public class OPERATOR extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this,"Data Berhasil Dihapus");
                 KdOperator.setText("");
                 NmOperator.setText("");
-                TpOperator.setText("");
+                tipeoperator.setSelectedItem("");
                 FcSektor.setText("");
                 FcProduksi.setText("");
-                LocOperasi.setText("");
+                txtprovinsi.setSelectedItem("");
                 KdOperator.requestFocus();
                 TabelOperator();
                 jButton1.setEnabled(true);
@@ -483,16 +515,24 @@ public class OPERATOR extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
                 KdOperator.setText("");
                 NmOperator.setText("");
-                TpOperator.setText("");
+                tipeoperator.setSelectedItem("");
                 FcSektor.setText("");
                 FcProduksi.setText("");
-                LocOperasi.setText("");
+                txtprovinsi.setSelectedItem("");
                 KdOperator.requestFocus();
                 jButton1.setEnabled(true);
                 TabelOperator();
                 
                 // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void txtprovinsiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtprovinsiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtprovinsiActionPerformed
+
+    private void tipeoperatorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipeoperatorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tipeoperatorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -533,10 +573,8 @@ public class OPERATOR extends javax.swing.JFrame {
     private javax.swing.JTextField FcProduksi;
     private javax.swing.JTextField FcSektor;
     private javax.swing.JTextField KdOperator;
-    private javax.swing.JTextField LocOperasi;
     private javax.swing.JTextField NmOperator;
     private javax.swing.JTable TabelOperator;
-    private javax.swing.JTextField TpOperator;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -551,5 +589,8 @@ public class OPERATOR extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JComboBox<String> tipeoperator;
+    private javax.swing.JComboBox<String> txtprovinsi;
     // End of variables declaration//GEN-END:variables
+
 }
