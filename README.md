@@ -1,6 +1,9 @@
 # DBMS-Project-SDA
+1. Download dulu Netbeans IDE
+2. SQL Server, SSMS
+3. Libraries (ada di folder)
 
-## Cara Connect database SQL Server
+## Cara Connect database SQL Server Remote
 
 ## Cara Konek SQL Server di Netbeans
 1. Add Libraries <br>
@@ -20,9 +23,11 @@ password : bytadit123 <br>
 3. SDA Menu
 
 ### Tugas Farel :
-1. Membuat Jframe/GUI untuk RENEWABLE, format mirip dengan JFRAME OPERATOR, SILAKAN PELAJARI VIDEO TUTOR YT KMRN (TERUTAMA PROSES INSERT UPDATE DELETE)
+1. Membuat database + Jframe/GUI untuk RENEWABLE, Komoditas, format mirip dengan JFRAME OPERATOR, SILAKAN PELAJARI VIDEO TUTOR YT KMRN (TERUTAMA PROSES INSERT UPDATE DELETE)
 2. Percantik GUI
 ### Tugas Adit :
-1. GUI Operator, Provinsi, Komoditas, NON-RENEWABLE
+1. databse n GUI Operator , Provinsi, NON-RENEWABLE
 2. Link antar page, Form Login(myb)
 
+TIAP ADA UPDATE, INGAT UTK SELALU COMMIT
+UTK PUSH, BIKIN SSH SENDIRI JGA GPP, NNTI KUTAMBAHKAN
