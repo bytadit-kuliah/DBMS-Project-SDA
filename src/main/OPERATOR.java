@@ -258,7 +258,7 @@ public class OPERATOR extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-    String url = "jdbc:sqlserver://192.168.43.36:1433;databaseName=SDAIndo"; /*test commit*/
+    String url = "jdbc:sqlserver://192.168.43.36:1433;databaseName=SDAIndo"; /*jadi ip address*/
     String user = "bytadit";
     String password = "bytadit123";
     
