@@ -11,8 +11,8 @@ git config --global user.email "MY_NAME@example.com"  //email yg mau dipake <br>
 10. edit", file netbeans, klo udh fix, disave, 
 11. git status, klo merah mk perlu di add (git add .)
 12. git status, (klo hijau mk tinggal commit : git commit -m "pesan...")
-13. git push -u origin main (klo error pas ngepush https://medium.com/@bayupaoh/kolaburasi-code-dengan-git-dan-github-1-79e19e553f85) (master diganti main)
-14. 
+13. git push -u origin main (klo error pas ngepush pke: git pull origin main, baru git push -origin main) <br> sc : https://medium.com/@bayupaoh/kolaburasi-code-dengan-git-dan-github-1-79e19e553f85) (master diganti main)
+
 
 # DBMS-Project-SDA
 1. Download dulu Netbeans IDE
