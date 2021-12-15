@@ -65,8 +65,8 @@ public class KOMODITAS extends javax.swing.JFrame {
         CLEAR_KOM = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         TabelKomoditas = new javax.swing.JTable();
-        jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -235,6 +235,16 @@ public class KOMODITAS extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(TabelKomoditas);
 
+        jButton6.setBackground(new java.awt.Color(204, 51, 0));
+        jButton6.setForeground(new java.awt.Color(255, 255, 255));
+        jButton6.setText("CLOSE");
+        jButton6.setBorderPainted(false);
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
         jButton5.setBackground(new java.awt.Color(0, 153, 102));
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setText("MENU");
@@ -242,16 +252,6 @@ public class KOMODITAS extends javax.swing.JFrame {
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
-            }
-        });
-
-        jButton6.setBackground(new java.awt.Color(204, 51, 0));
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("KELUAR");
-        jButton6.setBorderPainted(false);
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
             }
         });
 
@@ -266,7 +266,7 @@ public class KOMODITAS extends javax.swing.JFrame {
                     .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1)
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton6)))
@@ -283,11 +283,11 @@ public class KOMODITAS extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5)
-                    .addComponent(jButton6))
-                .addContainerGap())
+                    .addComponent(jButton6)
+                    .addComponent(jButton5))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         pack();
@@ -295,7 +295,7 @@ public class KOMODITAS extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-    String url = "jdbc:sqlserver://192.168.43.36:1433;databaseName=SDAIndo"; /*jadi ip address*/
+    String url = "jdbc:sqlserver://192.168.43.36:1433;databaseName=SDAK5"; /*jadi ip address*/
     String user = "bytadit";
     String password = "bytadit123";
     
@@ -309,7 +309,7 @@ public class KOMODITAS extends javax.swing.JFrame {
         try {
             con = DriverManager.getConnection(url, user, password);
         } catch (SQLException ex) {
-            Logger.getLogger(OPERATOR.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(KOMODITAS.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -340,25 +340,11 @@ public class KOMODITAS extends javax.swing.JFrame {
             }
             
         } catch (SQLException ex) {
-            Logger.getLogger(OPERATOR.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(KOMODITAS.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
     
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        dispose();
-        MENU a= new MENU();
-        a.setVisible(true);
-        a.setDefaultCloseOperation(MENU.DISPOSE_ON_CLOSE);        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        int reply = JOptionPane.showConfirmDialog(null, "Apakah anda ingin keluar?", "keluar", JOptionPane.YES_NO_OPTION);
-        if (reply == JOptionPane.YES_OPTION){
-            System.exit(1);
-        }           // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
-
     private void Kode_KomoditasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Kode_KomoditasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Kode_KomoditasActionPerformed
@@ -399,7 +385,7 @@ public class KOMODITAS extends javax.swing.JFrame {
             }
             // TODO add your handling code here:
         } catch (SQLException ex) {
-            Logger.getLogger(OPERATOR.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(KOMODITAS.class.getName()).log(Level.SEVERE, null, ex);
         }        // TODO add your handling code here:
     }//GEN-LAST:event_INSERT_KOMActionPerformed
 
@@ -459,7 +445,7 @@ public class KOMODITAS extends javax.swing.JFrame {
             }
             // TODO add your handling code here:
         } catch (SQLException ex) {
-            Logger.getLogger(OPERATOR.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(KOMODITAS.class.getName()).log(Level.SEVERE, null, ex);
         }        // TODO add your handling code here:
     }//GEN-LAST:event_UPDATE_KOMActionPerformed
 
@@ -500,7 +486,7 @@ public class KOMODITAS extends javax.swing.JFrame {
             }
             // TODO add your handling code here:
         } catch (SQLException ex) {
-            Logger.getLogger(OPERATOR.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(KOMODITAS.class.getName()).log(Level.SEVERE, null, ex);
         }        // TODO add your handling code here:
     }//GEN-LAST:event_DELETE_KOMActionPerformed
 
@@ -515,6 +501,17 @@ public class KOMODITAS extends javax.swing.JFrame {
                 INSERT_KOM.setEnabled(false);
                 TabelKomoditas();        // TODO add your handling code here:
     }//GEN-LAST:event_CLEAR_KOMActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        dispose();
+        MENU a= new MENU();
+        a.setVisible(true);
+        a.setDefaultCloseOperation(MENU.DISPOSE_ON_CLOSE);        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments

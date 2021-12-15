@@ -80,13 +80,13 @@ public class OPERATOR extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
-        Stipeoperator = new javax.swing.JComboBox<>();
+        STpOperator = new javax.swing.JTextField();
         jPanel8 = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
-        SFokusSektor = new javax.swing.JComboBox<>();
+        FilFkSek = new javax.swing.JTextField();
         jPanel9 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
-        SFokusProd = new javax.swing.JTextField();
+        FilFokProd = new javax.swing.JTextField();
         jPanel7 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
         SNmOperator = new javax.swing.JTextField();
@@ -187,7 +187,7 @@ public class OPERATOR extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(NmOperator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 12, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(FcProduksi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -232,7 +232,7 @@ public class OPERATOR extends javax.swing.JFrame {
 
         jButton6.setBackground(new java.awt.Color(204, 51, 0));
         jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("KELUAR");
+        jButton6.setText("CLOSE");
         jButton6.setBorderPainted(false);
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -289,13 +289,13 @@ public class OPERATOR extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(11, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addGap(12, 12, 12))
         );
 
         jPanel3.setBackground(new java.awt.Color(0, 204, 153));
@@ -327,15 +327,14 @@ public class OPERATOR extends javax.swing.JFrame {
         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel21.setText("Tipe Operator");
 
-        Stipeoperator.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ALL", "BUMN", "BUMD", "BUMS", " " }));
-        Stipeoperator.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                StipeoperatorItemStateChanged(evt);
+        STpOperator.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                STpOperatorActionPerformed(evt);
             }
         });
-        Stipeoperator.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                StipeoperatorActionPerformed(evt);
+        STpOperator.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                STpOperatorKeyReleased(evt);
             }
         });
 
@@ -346,17 +345,17 @@ public class OPERATOR extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Stipeoperator, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE))
+                    .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                    .addComponent(STpOperator))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Stipeoperator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(STpOperator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel8.setBackground(new java.awt.Color(0, 204, 153));
@@ -365,15 +364,14 @@ public class OPERATOR extends javax.swing.JFrame {
         jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel23.setText("Fokus Sektor");
 
-        SFokusSektor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ALL", "PETERNAKAN", "PERTANIAN", "PERKEBUNAN", "PERHUTANAN", "PERIKANAN", "MINERBA", "MIGAS" }));
-        SFokusSektor.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                SFokusSektorItemStateChanged(evt);
+        FilFkSek.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FilFkSekActionPerformed(evt);
             }
         });
-        SFokusSektor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SFokusSektorActionPerformed(evt);
+        FilFkSek.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                FilFkSekKeyReleased(evt);
             }
         });
 
@@ -384,17 +382,17 @@ public class OPERATOR extends javax.swing.JFrame {
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(SFokusSektor, 0, 136, Short.MAX_VALUE)
-                    .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+                    .addComponent(FilFkSek, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SFokusSektor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10))
+                .addComponent(FilFkSek, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jPanel9.setBackground(new java.awt.Color(0, 204, 153));
@@ -403,14 +401,14 @@ public class OPERATOR extends javax.swing.JFrame {
         jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel24.setText("Fokus Produksi");
 
-        SFokusProd.addActionListener(new java.awt.event.ActionListener() {
+        FilFokProd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SFokusProdActionPerformed(evt);
+                FilFokProdActionPerformed(evt);
             }
         });
-        SFokusProd.addKeyListener(new java.awt.event.KeyAdapter() {
+        FilFokProd.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                SFokusProdKeyReleased(evt);
+                FilFokProdKeyReleased(evt);
             }
         });
 
@@ -421,7 +419,7 @@ public class OPERATOR extends javax.swing.JFrame {
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(SFokusProd)
+                    .addComponent(FilFokProd)
                     .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -430,7 +428,7 @@ public class OPERATOR extends javax.swing.JFrame {
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(SFokusProd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(FilFokProd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -439,6 +437,13 @@ public class OPERATOR extends javax.swing.JFrame {
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
         jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel22.setText("Nama Operator");
+        jLabel22.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+                jLabel22CaretPositionChanged(evt);
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+            }
+        });
 
         SNmOperator.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -458,17 +463,17 @@ public class OPERATOR extends javax.swing.JFrame {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(SNmOperator)
-                    .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE))
+                    .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
+                    .addComponent(SNmOperator, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(SNmOperator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(7, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -527,21 +532,21 @@ public class OPERATOR extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 19, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(4, 4, 4)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton5)
                     .addComponent(jButton6))
-                .addContainerGap())
+                .addGap(12, 12, 12))
         );
 
         pack();
@@ -549,7 +554,7 @@ public class OPERATOR extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-    String url = "jdbc:sqlserver://192.168.43.36:1433;databaseName=SDAIndo"; /*jadi ip address*/
+    String url = "jdbc:sqlserver://192.168.43.36:1433;databaseName=SDAK5"; /*jadi ip address*/
     String user = "bytadit";
     String password = "bytadit123";
     
@@ -808,47 +813,51 @@ public class OPERATOR extends javax.swing.JFrame {
         TabelOperator.setRowSorter(tr);
             tr.setRowFilter(RowFilter.regexFilter(query));
     }
-    private void StipeoperatorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StipeoperatorActionPerformed
+    private void FilFkSekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FilFkSekActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_StipeoperatorActionPerformed
+    }//GEN-LAST:event_FilFkSekActionPerformed
 
-    private void SFokusSektorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SFokusSektorActionPerformed
+    private void FilFokProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FilFokProdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_SFokusSektorActionPerformed
-
-    private void SNmOperatorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SNmOperatorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SNmOperatorActionPerformed
-
-    private void SFokusProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SFokusProdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SFokusProdActionPerformed
+    }//GEN-LAST:event_FilFokProdActionPerformed
 
     private void txtSektorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSektorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSektorActionPerformed
 
-    private void StipeoperatorItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_StipeoperatorItemStateChanged
-        String query = Stipeoperator.getSelectedItem().toString();
-        filter(query);        // TODO add your handling code here:
-    }//GEN-LAST:event_StipeoperatorItemStateChanged
-
-    private void SFokusSektorItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_SFokusSektorItemStateChanged
-
-        String query = SFokusSektor .getSelectedItem().toString();
-        filter(query);// TODO add your handling code here:
-    }//GEN-LAST:event_SFokusSektorItemStateChanged
-
-    private void SFokusProdKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SFokusProdKeyReleased
-        String query = SFokusProd.getText();
+    private void FilFokProdKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_FilFokProdKeyReleased
+        String query = FilFokProd.getText();
         filter2(query);// DO add your handling code here:
-    }//GEN-LAST:event_SFokusProdKeyReleased
+    }//GEN-LAST:event_FilFokProdKeyReleased
+
+    private void FilFkSekKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_FilFkSekKeyReleased
+        
+        String query = FilFkSek.getText();
+        filter2(query);// DO add your handling code here// TODO add your handling code here:
+    }//GEN-LAST:event_FilFkSekKeyReleased
+
+    private void jLabel22CaretPositionChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_jLabel22CaretPositionChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel22CaretPositionChanged
+
+    private void SNmOperatorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SNmOperatorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SNmOperatorActionPerformed
 
     private void SNmOperatorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SNmOperatorKeyReleased
         
         String query = SNmOperator.getText();
-        filter2(query);// DO add your handling code here// TODO add your handling code here:
+        filter2(query);// TODO add your handling code here:
     }//GEN-LAST:event_SNmOperatorKeyReleased
+
+    private void STpOperatorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_STpOperatorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_STpOperatorActionPerformed
+
+    private void STpOperatorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_STpOperatorKeyReleased
+        String query = STpOperator.getText();
+        filter2(query);                // TODO add your handling code here:
+    }//GEN-LAST:event_STpOperatorKeyReleased
 
     /**
      * @param args the command line arguments
@@ -887,12 +896,12 @@ public class OPERATOR extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField FcProduksi;
+    private javax.swing.JTextField FilFkSek;
+    private javax.swing.JTextField FilFokProd;
     private javax.swing.JTextField KdOperator;
     private javax.swing.JTextField NmOperator;
-    private javax.swing.JTextField SFokusProd;
-    private javax.swing.JComboBox<String> SFokusSektor;
     private javax.swing.JTextField SNmOperator;
-    private javax.swing.JComboBox<String> Stipeoperator;
+    private javax.swing.JTextField STpOperator;
     private javax.swing.JTable TabelOperator;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
