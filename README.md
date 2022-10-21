@@ -41,18 +41,3 @@ Port : 1433 <br>
 database : SDAIndo <br>
 Username : (sesuai ssms) <br>
 password : (sesuai ssms)<br>
-->dbo
-## Bagian GUI yang sudah dibuat (belum final, tampilan msh jelek) :
-1. Operator
-2. Menu Utama
-3. SDA Menu
-
-### Tugas Farel :
-1. Membuat database + Jframe/GUI untuk RENEWABLE, Komoditas, format mirip dengan JFRAME OPERATOR, SILAKAN PELAJARI VIDEO TUTOR YT KMRN (TERUTAMA PROSES INSERT UPDATE DELETE)
-2. Percantik GUI
-### Tugas Adit :
-1. databse n GUI Operator , Provinsi, NON-RENEWABLE
-2. Link antar page, Form Login(myb)
-
-TIAP ADA UPDATE, INGAT UTK SELALU COMMIT
-UTK PUSH, BIKIN SSH SENDIRI JGA GPP, NNTI KUTAMBAHKAN
